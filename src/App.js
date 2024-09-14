@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+
+// this code is for component render-----------------------------------
+
+// function MyComeponent() {
+//   return(
+//     <>
+//     <div key="first">First</div>
+//     <div key="second">Second</div>
+//     </>
+//   );
+// }
+
+// function App() {
+//   return(
+//     <div>
+//     <MyComeponent key="first"/>
+//     <MyComeponent key="second"/>
+//   </div>
+//   )
+// }
+
+// export default App;
+
+
+
+
+
+
+// this code is for output when this component is rendered--------------------------------
+const MyComeponent = ({children}) => {
+  React.Children.forEach(children, child => {
+    console.log(child.type);
+  });
+
+  return 
+    <div>{children}</div>
+};
+
+
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <MyComeponent>
+      <p>First Child</p>
+      <p>Second Child</p>
+    </MyComeponent>
   );
 }
 
